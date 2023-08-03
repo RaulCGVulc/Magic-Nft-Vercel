@@ -1,0 +1,51 @@
+.walletAdapterButton {
+  display: flex;
+  background-color: #202020;
+  color: #fff;
+  outline: none;
+  border: none;
+  
+  font-size: 0.875em;
+  padding: 0.9rem 2.3rem;
+  border-radius: 50px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.walletAdapterButton:hover{
+  transform: scale(0.9);
+}
+
+.walletAdapterButton::after{
+  content: " ";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  border: 2px solid #202020;
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  transition: all 0.2s ease;
+}
+
+.walletAdapterButton:hover::after{
+  transform: translate(-50%, -50%) scale(1);
+  padding: 0.3rem;
+}
+
+.on{}
+
+.on + ul {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(10px);
+}
+
+.off{}
+
+.off + ul {
+  opacity: 0;
+  visibility: hidden;
+}
