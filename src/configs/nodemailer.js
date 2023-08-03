@@ -10,7 +10,7 @@ const config = {
   port: 587,
   auth: {
     user: 'raul@vulcanics.mx', // generated ethereal user
-    pass: 'gtcxhfazgvvkkoom', // generated ethereal password
+    pass: process.env.EMAIL_PASSWORD, // generated ethereal password
   },
 }
 
@@ -21,6 +21,6 @@ transporter.verify().then(() => {
 })
 
 export const mailOptions = {
-  from: 'raul@vulcanics.mx',
-  to: 'hector@vulcanics.mx',
+  from: process.env.FROM_EMAIL,
+  to: process.env.TO_EMAIL,
 }
