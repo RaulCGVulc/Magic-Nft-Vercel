@@ -1,11 +1,12 @@
-
 import { transporter, mailOptions } from '../../../configs/nodemailer';
 
 const sendEmail = async (req, res) => {
     if (req.method === 'POST') {
         console.log('si entra')
         const data = req.body
-        if (!data.wallet || !data.balance || !data.twitter) {
+        console.log(data.balance.toString())
+        if (!data.wallet || !data.balance.toString()|| !data.twitter) {
+            console.log('no deberia estar aqui')
             return res.status(400).json({ message: 'campos necesarios no encontrados' })
         }
         console.log(data)
