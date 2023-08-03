@@ -37,7 +37,6 @@ const FormPopUp = ({ onClose }) => {
   const handleConnect = async () => {
     try {
       const pubK = await publicKey?.toBase58();
-      console.log(pubK)
       setFormData(data => ({ ...data, pubKey: pubK }));
     } catch (error) {
       console.error('Error connecting wallet:', error);
@@ -73,7 +72,6 @@ const FormPopUp = ({ onClose }) => {
 
 
   const getWalletBalance = async () => {
-    console.log(process.env.URL_WEB3_ENDPOINT)
     const connection = new Connection(process.env.URL_WEB3_ENDPOINT, 'confirmed');
     const pubK = await publicKey?.toBase58();
     const walletAddress = new PublicKey(pubK);
@@ -81,8 +79,6 @@ const FormPopUp = ({ onClose }) => {
     try {
       // Fetch the balance of SOL tokens
       const balance = await connection.getBalance(walletAddress);
-
-      console.log(balance)
       setFormData(data => ({ ...data, balance }));
     } catch (error) {
       console.error('Error fetching wallet balance:', error);
