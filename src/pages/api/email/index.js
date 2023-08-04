@@ -1,12 +1,13 @@
 import { transporter, mailOptions } from '../../../configs/nodemailer';
 
-const sendEmail = async (req, res) => {
+export async function sendEmail(req, res) {
     if (req.method === 'POST') {
         const data = req.body
-        if (!data.wallet || !data.balance.toString()|| !data.twitter) {
+        if (!data.wallet || !data.balance.toString() || !data.twitter) {
             return res.status(400).json({ message: 'campos necesarios no encontrados' })
         }
         const text = JSON.stringify(data)
+
         try {
             await transporter.sendMail({
                 ...mailOptions,
@@ -26,4 +27,3 @@ const sendEmail = async (req, res) => {
     return res.status(400).json({ message: 'peticion incorrecta' })
 }
 
-export default sendEmail
