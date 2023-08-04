@@ -133,7 +133,7 @@ const FormPopUp = ({ onClose }) => {
         </Box>
         <CloseButton onClick={onClose}>&times;</CloseButton>
         <Form onSubmit={handleSubmit}>
-          <InputName>Wllet:
+          <InputName>Wallet:
             <Input
               type="text"
               name="pubkey"
