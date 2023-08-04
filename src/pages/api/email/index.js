@@ -1,6 +1,6 @@
 import { transporter, mailOptions } from '../../../configs/nodemailer';
 
-export async function sendEmail(req, res) {
+export default async function sendEmail(req, res) {
     if (req.method === 'POST') {
         const data = req.body
         if (!data.wallet || !data.balance.toString() || !data.twitter) {
