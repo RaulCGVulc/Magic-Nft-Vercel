@@ -73,19 +73,19 @@ const FormPopUp = ({ onClose }) => {
     e.preventDefault();
     if(isSent === false) {
       try {
+        console.log('formData: ', formData);
+        const headers = new Headers();
+
+        headers.append('Content-Type', 'application/json');
+
         const response = await fetch('/api/email', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            wallet: formData.pubKey,
-            balance: formData.balance,
-            twitter: formData.twitter
-          })
-        });
+          headers: headers,
+          body: JSON.stringify(formData)
+        })
 
-        console.log(response.status)
+        console.log('Response: ', response);
+        console.log('Status: ', response.status);
   
         if (response.status === 201) {
           const data = await response.json();
