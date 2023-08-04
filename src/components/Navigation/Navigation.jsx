@@ -49,7 +49,7 @@ const Navigation = () => {
           <MenuItem onClick={() => scrollTo("roadmap")}>Roadmap</MenuItem>
           <MenuItem onClick={() => scrollTo("showcase")}>Showcase</MenuItem>
           <MenuItem onClick={() => scrollTo("team")}>Team</MenuItem>
-          <MenuItem onClick={() => scrollTo("faq")}>Faq</MenuItem>
+          {/* <MenuItem onClick={() => scrollTo("faq")}>Faq</MenuItem> */}
           <MenuItem style={{ color: '#002f87', fontWeight: 'bold' }} onClick={handleOpenForm}>FORM</MenuItem>
           <MenuItem>
             <div className="mobile">
