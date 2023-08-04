@@ -1,16 +1,16 @@
 import React, { useRef } from 'react';
 import styled, { keyframes } from 'styled-components';
 
-import img1 from '../../../assets/Nfts/NFT-IMG-1.png'
-import img2 from '../../../assets/Nfts/NFT-IMG-7.png'
-import img3 from '../../../assets/Nfts/NFT-IMG-2.png'
-import img4 from '../../../assets/Nfts/NFT-IMG-8.png'
-import img5 from '../../../assets/Nfts/NFT-IMG-3.png'
-import img6 from '../../../assets/Nfts/NFT-IMG-9.png'
-import img7 from '../../../assets/Nfts/NFT-IMG-4.png'
-import img8 from '../../../assets/Nfts/NFT-IMG-10.png'
-import img9 from '../../../assets/Nfts/NFT-IMG-5.png'
-import img10 from '../../../assets/Nfts/NFT-IMG-11.png'
+import img1 from '../../../assets/Nfts/Spirit1.gif'
+import img2 from '../../../assets/Nfts/Spirit2.gif'
+import img3 from '../../../assets/Nfts/Spirit3.gif'
+import img4 from '../../../assets/Nfts/Spirit4.gif'
+import img5 from '../../../assets/Nfts/Spirit5.gif'
+import img6 from '../../../assets/Nfts/Spirit6.gif'
+import img7 from '../../../assets/Nfts/Spirit7.gif'
+import img8 from '../../../assets/Nfts/Spirit8.gif'
+import img9 from '../../../assets/Nfts/Spirit9.gif'
+import img10 from '../../../assets/Nfts/Spirit10.gif'
 import SOL from '../../../assets/solana-sol-logo.svg'
 import Image from 'next/image';
 
@@ -22,18 +22,18 @@ const Showcase = () => {
   return (
     <Section id='showcase'>
       <Row ref={row1Ref} direction='none'>
-        <NftItem img={img1} number={654} price={1.5} passRef={row1Ref} />
-        <NftItem img={img2} number={654} price={1.5} passRef={row1Ref} />
-        <NftItem img={img3} number={654} price={1.5} passRef={row1Ref} />
-        <NftItem img={img4} number={654} price={1.5} passRef={row1Ref} />
-        <NftItem img={img5} number={654} price={1.5} passRef={row1Ref} />
+        <NftItem img={img1} number={14} price={0.4} passRef={row1Ref} />
+        <NftItem img={img2} number={186} price={0.5017} passRef={row1Ref} />
+        <NftItem img={img3} number={244} price={0.5017} passRef={row1Ref} />
+        <NftItem img={img4} number={241} price={0.5463} passRef={row1Ref} />
+        <NftItem img={img5} number={67} price={0.9589} passRef={row1Ref} />
       </Row>
       <Row ref={row2Ref} direction='reverse'>
-        <NftItem img={img6} number={654} price={1.5} passRef={row2Ref} />
-        <NftItem img={img7} number={654} price={1.5} passRef={row2Ref} />
-        <NftItem img={img8} number={654} price={1.5} passRef={row2Ref} />
-        <NftItem img={img9} number={654} price={1.5} passRef={row2Ref} />
-        <NftItem img={img10} number={654} price={1.5} passRef={row2Ref} />
+        <NftItem img={img6} number={265} price={1.1038} passRef={row2Ref} />
+        <NftItem img={img7} number={44} price={1.1038} passRef={row2Ref} />
+        <NftItem img={img8} number={247} price={1.1038} passRef={row2Ref} />
+        <NftItem img={img9} number={40} price={1.1038} passRef={row2Ref} />
+        <NftItem img={img10} number={245} price={1.1038} passRef={row2Ref} />
       </Row>
     </Section>
   )
@@ -49,16 +49,16 @@ const NftItem = ({ img, number = 0, price = 0, passRef }) => {
   }
 
   return (
-    <ImgContainer onMouseOver={e => pause(e)} onMouseOut={e => play(e)}>
-      <Image src={img} alt="The NFT" />
+    <ImgContainer onMouseOver={e => pause(e)} onMouseOut={e => play(e)}> 
+      <NftImage src={img} alt="The NFT" priority />
       <Details> <div>
-        <span>Weirdos</span> <br />
+        <span>Spirit</span> <br />
         <h2>#{number}</h2>
       </div>
         <div>
           <span>Price</span>
           <Price>
-            <Image src={SOL} alt="" />
+            <Image src={SOL} alt="Solana Icon" />
             <h2>{Number(price).toFixed(1)}</h2>
 
           </Price>
@@ -115,7 +115,9 @@ const ImgContainer = styled.div`
 width: 15rem;
 margin: 0 1rem;
 background-color:${props => props.theme.body};
-
+display: flex;
+flex-direction: column;
+overflow: hidden;
 border-radius: 20px;
 cursor: pointer;
 
@@ -126,10 +128,11 @@ cursor: pointer;
   width: 10rem;
   }
 
-img{
+`
+
+const NftImage = styled(Image)`
   width: 100%;
   height: auto;
-}
 `
 
 const Details = styled.div`
