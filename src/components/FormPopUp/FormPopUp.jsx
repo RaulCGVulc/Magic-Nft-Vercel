@@ -7,6 +7,7 @@ import { Connection, PublicKey, clusterApiUrl } from '@solana/web3.js';
 import { CoverVideo } from '../CoverVideo';
 
 import img from '../../assets/form-video.gif'
+import { Alert } from '../Alert';
 
 const FormPopUp = ({ onClose }) => {
 
@@ -15,9 +16,34 @@ const FormPopUp = ({ onClose }) => {
     balance: '',
     twitter: '',
   });
-  const [pubkey, setPubkey] = useState('');
   const { publicKey } = useWallet();
+  const [click, setclick] = useState(0)
+  const [isSent, setIsSent] = useState(null)
 
+
+  useEffect(() => {
+    const checkStatus = localStorage.getItem('isSent')
+    if (checkStatus === null) {
+      localStorage.setItem('isSent', false)
+      setIsSent(false)
+    }
+    if (checkStatus === true) {
+      setIsSent(true)
+    }
+    if(isSent) {
+      localStorage.setItem('isSent', true)
+    }
+  
+  }, [isSent])
+
+
+
+  useEffect(() => {
+    if (publicKey) {
+      handleConnect()
+      getWalletBalance()
+    }
+  }, [publicKey])
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -45,31 +71,39 @@ const FormPopUp = ({ onClose }) => {
 
   const handleSendEmail = async (e) => {
     e.preventDefault();
-    try {
-      const response = await fetch('/api/email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          wallet: formData.pubKey,
-          balance: formData.balance,
-          twitter: formData.twitter
-        })
-      });
 
-      if (response.ok) {
-        const data = await response.json();
-        console.log(data);
-      } else {
-        throw new Error('Request failed');
+    console.log(isSent)
+    if(isSent === false) {
+      try {
+        const response = await fetch('/api/email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            wallet: formData.pubKey,
+            balance: formData.balance,
+            twitter: formData.twitter
+          })
+        });
+  
+        if (response.status === 200) {
+          const data = await response.json();
+          console.log(data);
+          setclick(1)
+          setIsSent(true)
+        } else {
+          throw new Error(response);
+        }
+      } catch (error) {
+        console.log(error);
       }
-    } catch (error) {
-      console.log(error);
     }
-
   }
 
+  const handleClickAlarm = () => {
+    setclick(0)
+  }
 
   const getWalletBalance = async () => {
     const connection = new Connection(process.env.URL_WEB3_ENDPOINT, 'confirmed');
@@ -88,43 +122,44 @@ const FormPopUp = ({ onClose }) => {
 
 
 
-
-  useEffect(() => {
-    if (publicKey) {
-      handleConnect()
-      getWalletBalance()
-    }
-  }, [publicKey])
-
   return (
     <Background onClick={onClose}>
       <Wrapper onClick={(e) => e.stopPropagation()}>
+        <Alert handleClickAlarm={handleClickAlarm} click={click} />
+
         <Box>
           <CoverVideo img={img} />
         </Box>
         <CloseButton onClick={onClose}>&times;</CloseButton>
         <Form onSubmit={handleSubmit}>
-          <Input
-            type="text"
-            name="pubkey"
-            placeholder="PubKey"
-            value={formData.pubKey}
-            disabled
-          />
-          <Input
-            type="text"
-            name="balance"
-            placeholder="balance"
-            value={formData.balance}
-            disabled
-          />
-          <Input
-            type="text"
-            name="twitter"
-            placeholder="Your Twitter"
-            value={formData.twitter}
-            onChange={handleChange}
-          />
+          <InputName>Wllet:
+            <Input
+              type="text"
+              name="pubkey"
+              placeholder="PubKey"
+              value={formData.pubKey}
+              disabled
+            />
+          </InputName>
+
+          <InputName>Balance:
+            <Input
+              type="text"
+              name="balance"
+              placeholder="balance"
+              value={formData.balance}
+              disabled
+            />
+          </InputName>
+          <InputName>Twitter:
+            <Input
+              type="text"
+              name="twitter"
+              placeholder="@Your Twitter"
+              value={formData.twitter}
+              onChange={handleChange}
+            />
+          </InputName>
           <SubmitButton type="submit" onClick={handleSendEmail}>SEND</SubmitButton>
         </Form>
       </Wrapper>
@@ -159,6 +194,7 @@ const Wrapper = styled.div`
   border-radius: 10px;
   background-color: #000000;
   max-width: 500px;
+  overflow: hidden;
 
   position: relative;
   @media (min-width: 1280px) {
@@ -194,19 +230,22 @@ margin-top: 15px;
 const CloseButton = styled.span`
   position: absolute;
   top: -10px;
-  right: -10px;
+  right: 10px;
   width: 40px;
   aspect-ratio: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 4px solid white;
   border-radius: 100%;
-  font-size: 25px;
+  font-size: 80px;
   color: white;
   font-weight: bold;
   cursor: pointer;
 `;
+
+const InputName = styled.label`
+  color: white;
+`
 
 const Input = styled.input`
 color: #efefef;
