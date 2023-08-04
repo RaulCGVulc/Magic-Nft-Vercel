@@ -138,16 +138,16 @@ const About = () => {
 
         <Box>
 
-          <Title >Welcome To The Weirdos Club.</Title>
+          <Title >Magic $Money Mages Magistrate.</Title>
           <SubText >
-            The WEIRDOS CLUB is a private collection of NFTs—unique digital collectibles. The Weirdos are stored as ERC-721 tokens on the Ethereum blockchain and hosted on IPFS.
+          The Magistrate of $Magic is a reserved society united by a Digital collectible - $Magic Money Mages stored as Tokens on the Solana Blockchain and hosted on IPFS.
           </SubText>
           <SubTextLight>
-            With more than 200+ hand drawn traits, each NFT is unique and comes with a membership to an exclusive group of successful investors. Join an ambitious ever-growing community with multiple benefits and utilities.
+            With more than 90+ hand drawn traits, each NFT is unique and comes with a membership to an exclusive group of successful investors. Join an ambitious ever-growing community with multiple benefits and utilities.
           </SubTextLight>
           <ButtonContainer>
             <ThemeProvider theme={dark}>
-              <Button text={'JOIN OUR DISCORD'} link={'#'} />
+              <Button text={'JOIN OUR DISCORD'} link={'https://discord.gg/swfpEcqPt9'} />
             </ThemeProvider>
           </ButtonContainer>
         </Box>

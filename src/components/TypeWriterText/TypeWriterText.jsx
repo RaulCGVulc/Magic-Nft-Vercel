@@ -13,15 +13,15 @@ font-family: "Akaya Telivigala", cursive;
   
 }
 .text-1{
-  color: blue;
+  color: #6a3896;
 }
 
 .text-2{
-color: orange;
+color: #fe8543;
 }
 
 .text-3{
-color: red;
+color: #e22157;
 }
 
 @media (max-width: 70em) {
@@ -75,7 +75,7 @@ const TypeWriterText = () => {
   return (
     <>
       <Title>
-        Discover a new area of cool
+        Join the Magistrate!
 
         <Typewriter
           options={{
@@ -84,12 +84,12 @@ const TypeWriterText = () => {
           }}
           onInit={(typewriter) => {
             typewriter
-              .typeString(`<span class="text-1">NFTs.</span>`)
+              .typeString(`<span class="text-1">Master $Magic.</span>`)
               .pauseFor(2000)
               .deleteAll()
-              .typeString(`<span class="text-2">Collectible Items.</span>`).pauseFor(2000)
+              .typeString(`<span class="text-2">Make frens.</span>`).pauseFor(2000)
               .deleteAll()
-              .typeString(`<span class="text - 3">Ape Killers!</span>`)
+              .typeString(`<span class="text - 3">Discover Token-2022!</span>`)
               .pauseFor(2000)
               .deleteAll()
               .start()
@@ -97,10 +97,10 @@ const TypeWriterText = () => {
         />
       </Title>
       <Subtitle>
-        Bored Of Apes? Try Something New
+        Each mage will get a $Magic airdrop
       </Subtitle>
       <ButtonContainer>
-        <Button text={'Explore'} link={'#about'} />
+        <Button text={'Explore'} link={'https://magiceden.io/marketplace/maigc_spirits'} />
       </ButtonContainer>
     </>
   )

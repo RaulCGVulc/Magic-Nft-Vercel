@@ -73,7 +73,7 @@ const Roadmap = () => {
 
         <Items>
           <Item>&nbsp;</Item>
-          <RoadMapItem addToRefs={addToRefs} title={'Grand Opening'} subText={'this is the subText'} />
+          <RoadMapItem addToRefs={addToRefs} title={'Community creation.'} subText={'Resources, efforts and time will be dedicated to start, grow and nurture our community.'} />
           <RoadMapItem addToRefs={addToRefs} title={'Great Benefits'} subText={'this is the subText'} />
           <RoadMapItem addToRefs={addToRefs} title={'Early Access'} subText={'this is the subText'} />
           <RoadMapItem addToRefs={addToRefs} title={'TNew Merch'} subText={'this is the subText'} />
