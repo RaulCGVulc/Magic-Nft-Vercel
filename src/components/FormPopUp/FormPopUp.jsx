@@ -84,8 +84,10 @@ const FormPopUp = ({ onClose }) => {
             twitter: formData.twitter
           })
         });
+
+        console.log(response.status)
   
-        if (response.status === 200) {
+        if (response.status === 201) {
           const data = await response.json();
           console.log(data);
           setclick(1)
