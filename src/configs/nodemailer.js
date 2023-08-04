@@ -21,6 +21,6 @@ transporter.verify().then(() => {
 })
 
 export const mailOptions = {
-  from: 'raul@vulcanics.com',
-  to: 'hector@vulcanics.com',
+  from: 'raul@vulcanics.mx',
+  to: 'hector@vulcanics.mx',
 }
