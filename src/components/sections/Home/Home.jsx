@@ -8,7 +8,7 @@ import img from '../../../assets/home-video.gif'
 
 const Home = () => {
   return (
-    <Section>
+    <Section id='home'>
       <Container >
         <Box><TypeWriterText /></Box>
         <Box><CoverVideo img={img}/></Box>
