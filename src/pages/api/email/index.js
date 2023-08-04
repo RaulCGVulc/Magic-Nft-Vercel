@@ -10,15 +10,15 @@ const sendEmail = async (req, res) => {
         try {
             await transporter.sendMail({
                 ...mailOptions,
-                subject: 'esta es una prueba',
+                subject: 'magic money ',
                 text,
             })
 
 
             res.status(200).json({ success: true })
         } catch (err) {
-            console.warn(err)
-            return res.status(400).json({ message: err.message })
+            console.log(err)
+            return res.status(400).json({ message: err })
         }
 
     }
