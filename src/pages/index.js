@@ -57,7 +57,7 @@ export default function Home() {
             <Roadmap />
             <Showcase />
             <Team />
-            <Faq />
+            {/* <Faq /> */}
             <Footer />
 
           </AutoConnectProvider>
