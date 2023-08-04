@@ -74,10 +74,10 @@ const Roadmap = () => {
         <Items>
           <Item>&nbsp;</Item>
           <RoadMapItem addToRefs={addToRefs} title={'Community creation.'} subText={'Resources, efforts and time will be dedicated to start, grow and nurture our community.'} />
-          <RoadMapItem addToRefs={addToRefs} title={'Great Benefits'} subText={'this is the subText'} />
-          <RoadMapItem addToRefs={addToRefs} title={'Early Access'} subText={'this is the subText'} />
-          <RoadMapItem addToRefs={addToRefs} title={'TNew Merch'} subText={'this is the subText'} />
-          <RoadMapItem addToRefs={addToRefs} title={'Holders Ranking'} subText={'this is the subText'} />
+          <RoadMapItem addToRefs={addToRefs} title={'Collab Phase'} subText={'During the Collab Phase, our Collab managers will approach existing communities and try to recruit promising members into the Magistrate.'} />
+          <RoadMapItem addToRefs={addToRefs} title={'$Magic Spirit Airdrop'} subText={'321 $Magic Spirits will be summoned and Aidropped to outstanding members of the community. Apply today!'} />
+          <RoadMapItem addToRefs={addToRefs} title={'Mint'} subText={'4,444 Mages will be minted for 0.1 SOL Each. Mint date TBA.'} />
+          <RoadMapItem addToRefs={addToRefs} title={'$Magic Airdrop'} subText={'A new Solana Token-2022 Standard Token will be Airdropped to all Mages and Spirit Holders right after mint - with the Mint Funds acting as liquidity for the Token.'} />
         </Items>
 
       </Container>
