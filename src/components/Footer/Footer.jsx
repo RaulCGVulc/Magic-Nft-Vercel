@@ -2,11 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { Logo } from '../Logo';
 import { Banner } from '../Banner';
-import Instagram from '../../Icons/Instagram';
-import Facebook from '../../Icons/Facebook';
-import Twitter from '../../Icons/Twitter';
-import LinkedIn from '../../Icons/LinkedIn';
 import Link from 'next/link';
+import Discord from '@/Icons/Discord';
+import Twitter from '@/Icons/Twitter';
 
 const Footer = () => {
 
@@ -29,32 +27,18 @@ const Footer = () => {
           <Logo />
           <IconList>
             <a
-              href="http://facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Facebook />
-            </a>
-            <a
-              href="http://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Instagram />
-            </a>
-            <a
-              href="http://twitter.com"
+              href="https://twitter.com/MagicMoneyMages"
               target="_blank"
               rel="noopener noreferrer"
             >
               <Twitter />
             </a>
             <a
-              href="http://linkedin.com"
+              href="https://discord.gg/swfpEcqPt9"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <LinkedIn />
+              <Discord />
             </a>
           </IconList>
         </Left>
@@ -64,13 +48,13 @@ const Footer = () => {
           <Item onClick={() => scrollTo("roadmap")}>Roadmap</Item>
           <Item onClick={() => scrollTo("showcase")}>Showcase</Item>
           <Item onClick={() => scrollTo("team")}>Team</Item>
-          <Item onClick={() => scrollTo("faq")}>Faq</Item>
+          {/* <Item onClick={() => scrollTo("faq")}>Faq</Item> */}
         </MenuItems>
       </Container>
 
       <Bottom>
         <span>
-          &copy;{new Date().getFullYear()} Weirdos Club.All rights reserved.
+          &copy;{new Date().getFullYear()} Mages Club.All rights reserved.
         </span>
 
       </Bottom>
