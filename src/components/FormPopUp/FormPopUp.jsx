@@ -23,11 +23,12 @@ const FormPopUp = ({ onClose }) => {
 
   useEffect(() => {
     const checkStatus = localStorage.getItem('isSent')
+    console.log(checkStatus)
     if (checkStatus === null) {
       localStorage.setItem('isSent', false)
       setIsSent(false)
     }
-    if (checkStatus === true) {
+    if (checkStatus === 'true') {
       setIsSent(true)
     }
     if(isSent) {
