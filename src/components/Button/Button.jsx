@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Btn = styled.button`
+const Btn = styled.a`
 display: inline-block;
 background-color: ${props => props.theme.text};
 color: ${props => props.theme.body};
@@ -39,12 +39,12 @@ transition: all 0.2s ease;
 }
 `
 const Button = ({ text, link }) => {
+
+  console.log(link)
   return (
-    <Btn>
-      <a href={link} aria-label={text} target="_blank" rel="noreferrer" >
+      <Btn href={link} aria-label={text} target="_blank" rel="noreferrer" >
         {text}
-      </a>
-    </Btn>
+      </Btn>
   )
 }
 export default Button
