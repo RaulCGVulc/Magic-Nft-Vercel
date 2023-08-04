@@ -19,6 +19,7 @@ const FormPopUp = ({ onClose }) => {
   const { publicKey } = useWallet();
   const [click, setclick] = useState(0)
   const [isSent, setIsSent] = useState(null)
+  const [isLoading, setisLoading] = useState(0)
 
 
   useEffect(() => {
@@ -29,6 +30,7 @@ const FormPopUp = ({ onClose }) => {
     }
     if (checkStatus === 'true') {
       setIsSent(true)
+      setisLoading(1)
     }
     if(isSent) {
       localStorage.setItem('isSent', true)
@@ -72,8 +74,8 @@ const FormPopUp = ({ onClose }) => {
   const handleSendEmail = async (e) => {
     e.preventDefault();
     if(isSent === false) {
+      setisLoading(1)
       try {
-        console.log('formData: ', formData);
         const headers = new Headers();
 
         headers.append('Content-Type', 'application/json');
@@ -83,21 +85,20 @@ const FormPopUp = ({ onClose }) => {
           headers: headers,
           body: JSON.stringify(formData)
         })
-
-        console.log('Response: ', response);
-        console.log('Status: ', response.status);
   
         if (response.status === 201) {
           const data = await response.json();
-          console.log(data);
           setclick(1)
           setIsSent(true)
+          setisLoading(2)
         } else {
           throw new Error(response);
         }
       } catch (error) {
         console.log(error);
       }
+    } else {
+      setisLoading(3)
     }
   }
 
@@ -151,16 +152,18 @@ const FormPopUp = ({ onClose }) => {
               disabled
             />
           </InputName>
-          <InputName>Twitter:
+          <InputName>Why do you want to be part of the Magistrate. Share any relevant links like memes made, fan art or X @account.
             <Input
               type="text"
               name="twitter"
-              placeholder="@Your Twitter"
+              placeholder="Go ahead."
               value={formData.twitter}
               onChange={handleChange}
             />
           </InputName>
-          <SubmitButton type="submit" onClick={handleSendEmail}>SEND</SubmitButton>
+          <SubmitButton type="submit" onClick={handleSendEmail} load={isLoading} style={{backgroundColor: isLoading ? '#7045b2' : '#202020'}}>
+            {isLoading ===1 ? 'SEND' : isLoading === 2 ? 'SENSING...' : 'SENT'}
+          </SubmitButton>
         </Form>
       </Wrapper>
     </Background>
@@ -261,7 +264,7 @@ color: #efefef;
 `;
 
 const SubmitButton = styled.button`
-  width: 100%;
+   width: 100%;
   padding: 30px;
   border: none;
   background-color: #202020;
@@ -271,9 +274,10 @@ const SubmitButton = styled.button`
   font-weight: bold;
   font-size: 25PX;
 
+
   &:hover {
-    background-color: #1A1A1A;
+    background-color: ${props => (props.load === 0 ? '#1A1A1A' : null)};
   }
-`;
+`
 
 export default FormPopUp;
