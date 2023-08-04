@@ -5,7 +5,6 @@ export default async function sendEmail(req, res) {
 
     if (req.method === 'POST') {
         const data = req.body;
-        console.log(data);
 
         if (!data.pubKey || !data.balance.toString() || !data.twitter) {
             return res.status(401).json({ message: 'campos necesarios no encontrados' })
