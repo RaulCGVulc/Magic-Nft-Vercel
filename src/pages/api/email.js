@@ -9,14 +9,14 @@ export default async function sendEmail(req, res) {
         const text = JSON.stringify(data)
 
         try {
-            await transporter.sendMail({
+            const response = await transporter.sendMail({
                 ...mailOptions,
                 subject: 'magic money ',
                 text,
             })
 
 
-            res.status(200).json({ success: true })
+            res.status(200).json({ response })
         } catch (err) {
             console.log(err)
             return res.status(400).json({ message: err })
