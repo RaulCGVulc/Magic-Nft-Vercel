@@ -23,8 +23,7 @@ const FormPopUp = ({ onClose }) => {
 
   useEffect(() => {
     const checkStatus = localStorage.getItem('isSent')
-    console.log(checkStatus)
-    if (checkStatus === null) {
+    if (checkStatus === null || checkStatus === 'false' ) {
       localStorage.setItem('isSent', false)
       setIsSent(false)
     }
@@ -72,8 +71,6 @@ const FormPopUp = ({ onClose }) => {
 
   const handleSendEmail = async (e) => {
     e.preventDefault();
-
-    console.log(isSent)
     if(isSent === false) {
       try {
         const response = await fetch('/api/email', {
