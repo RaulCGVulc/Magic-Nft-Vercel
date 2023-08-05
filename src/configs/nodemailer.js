@@ -10,7 +10,7 @@ const config = {
   port: 587,
   auth: {
     user: 'raul@vulcanics.mx', // generated ethereal user
-    pass: 'uwbzhmtrkcfgpofn', // generated ethereal password
+    pass: 'pxfcihzrlouksytn', // generated ethereal password
   },
 }
 
