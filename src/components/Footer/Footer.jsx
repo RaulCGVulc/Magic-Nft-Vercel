@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { Logo } from '../Logo';
 import { Banner } from '../Banner';
-import Link from 'next/link';
 import Discord from '@/Icons/Discord';
 import Twitter from '@/Icons/Twitter';
 
@@ -17,6 +16,8 @@ const Footer = () => {
       inline: "nearest",
     });
   };
+
+ 
 
   return (
     <Section>
