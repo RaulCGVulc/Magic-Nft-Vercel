@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import img1 from '../../assets/Nfts/NFT-IMG-1.png'
 import img2 from '../../assets/Nfts/NFT-IMG-7.png'
@@ -7,8 +7,21 @@ import img4 from '../../assets/Nfts/NFT-IMG-8.png'
 import img5 from '../../assets/Nfts/NFT-IMG-3.png'
 import img6 from '../../assets/Nfts/NFT-IMG-9.png'
 import Image from 'next/image';
+import { FormPopUp } from '../FormPopUp';
 
 const Banner = () => {
+
+  
+  const [showForm, setShowForm] = useState(false);
+
+  const handleCloseForm = () => {
+    setShowForm(false);
+  };
+
+  const handleOpenForm = () => {
+    setShowForm(true);
+  };
+
   return (
     <Section>
       <ImgContainer>
@@ -21,11 +34,14 @@ const Banner = () => {
       </ImgContainer>
       <Title>
         Join the <br />
-        weirdos club
+        Magistrate
       </Title>
-      <BtnContainer>
-        <JoinNow>Join Now</JoinNow>
+      <BtnContainer onClick={handleOpenForm}>
+        <JoinNow>Join now to the Form</JoinNow>
       </BtnContainer>
+
+      {showForm && <FormPopUp onClose={handleCloseForm} />}
+
     </Section>
   )
 };
