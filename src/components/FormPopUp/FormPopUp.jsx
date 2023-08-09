@@ -167,7 +167,7 @@ const FormPopUp = ({ onClose }) => {
             />
           </InputName>
           <SubmitButton type="submit" onClick={handleSendEmail} load={isLoading} style={{backgroundColor: isLoading ? '#7045b2' : '#202020'}}>
-            {isLoading ===1 ? 'SEND' : isLoading === 2 ? 'SENDING...' : 'SENT'}
+            {isLoading ===1 ? 'SENT' : isLoading === 2 ? 'SENDING...' : 'SEND'}
           </SubmitButton>
         </Form>
       </Wrapper>
