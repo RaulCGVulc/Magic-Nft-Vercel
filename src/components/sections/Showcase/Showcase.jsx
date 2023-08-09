@@ -13,6 +13,7 @@ import img9 from '../../../assets/Nfts/Spirit9.gif'
 import img10 from '../../../assets/Nfts/Spirit10.gif'
 import SOL from '../../../assets/solana-sol-logo.svg'
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Showcase = () => {
 
@@ -22,24 +23,24 @@ const Showcase = () => {
   return (
     <Section id='showcase'>
       <Row ref={row1Ref} direction='none'>
-        <NftItem img={img1} number={14} price={0.4} passRef={row1Ref} />
-        <NftItem img={img2} number={186} price={0.5017} passRef={row1Ref} />
-        <NftItem img={img3} number={244} price={0.5017} passRef={row1Ref} />
-        <NftItem img={img4} number={241} price={0.5463} passRef={row1Ref} />
-        <NftItem img={img5} number={67} price={0.9589} passRef={row1Ref} />
+        <NftItem img={img1} number={14} price={0.4} passRef={row1Ref} link={'https://magiceden.io/item-details/CfpQjeYyfY15Vpsft9MkAP1krr94CJFihb1DQhvH2B8M?name=%24Magic-Spirit-No.-14'} />
+        <NftItem img={img2} number={186} price={0.5017} passRef={row1Ref} link={'https://magiceden.io/item-details/5ke5JosBVLgTNqPvzzYSKJnUEyQnkyWwqzAL5gdFHgCC?name=%24Magic-Spirit-No.-186'}/>
+        <NftItem img={img3} number={255} price={0.5017} passRef={row1Ref} link='https://magiceden.io/item-details/chNxAN5ZJJN3UaxYqWoK6qsqaspxijBHmiCgsqXXRPS?name=%24Magic-Spirit-No.-255'/>
+        <NftItem img={img4} number={219} price={0.5463} passRef={row1Ref} link='https://magiceden.io/item-details/6Jj7ECStojpSHzewDqqDEztVAt2mk7YkbzhPq6X7Usn?name=%24Magic-Spirit-No.-219'/>
+        <NftItem img={img5} number={67} price={0.9589} passRef={row1Ref} link='https://magiceden.io/item-details/2jk7XeSiZAxsTmxuTT3uDQfRjq5JPxGqEVxbxs9hFAAC?name=%24Magic-Spirit-No.-67'/>
       </Row>
       <Row ref={row2Ref} direction='reverse'>
-        <NftItem img={img6} number={265} price={1.1038} passRef={row2Ref} />
-        <NftItem img={img7} number={44} price={1.1038} passRef={row2Ref} />
-        <NftItem img={img8} number={247} price={1.1038} passRef={row2Ref} />
-        <NftItem img={img9} number={40} price={1.1038} passRef={row2Ref} />
-        <NftItem img={img10} number={245} price={1.1038} passRef={row2Ref} />
+        <NftItem img={img6} number={265} price={1.1038} passRef={row2Ref} link='https://magiceden.io/item-details/5txyhHkJxKBKzbph2KTvV1XtWuMUZFfAW6u8FoiWxDLs?name=%24Magic-Spirit-No.-265'/>
+        <NftItem img={img7} number={44} price={1.1038} passRef={row2Ref} link='https://magiceden.io/item-details/7ePBNVEb1HSvBxHJG5nd9S8jiSxRRW2fz9n5PRt5humH?name=%24Magic-Spirit-No.-44'/>
+        <NftItem img={img8} number={247} price={1.1038} passRef={row2Ref} link='https://magiceden.io/item-details/9PaF4HF9X8fYR7oDbANSXfZ4QnPYhrAoWM3BeByPe777?name=%24Magic-Spirit-No.-247'/>
+        <NftItem img={img9} number={40} price={1.1038} passRef={row2Ref} link='https://magiceden.io/item-details/C46wneVL5yt6CvtEgs1k1iycUoHxpmXv4sU5PhPLJZ33?name=%24Magic-Spirit-No.-40'/>
+        <NftItem img={img10} number={245} price={1.1038} passRef={row2Ref} link='https://magiceden.io/item-details/FD2dFAmAMKA936VQQeTtK28mozibb1h7VTG8mQCZXhMi?name=%24Magic-Spirit-No.-245'/>
       </Row>
     </Section>
   )
 }
 
-const NftItem = ({ img, number = 0, price = 0, passRef }) => {
+const NftItem = ({ img, number = 0, price = 0, passRef, link=''}) => {
 
   let play = (e) => {
     passRef.current.style.animationPlayState = 'running';
@@ -49,7 +50,7 @@ const NftItem = ({ img, number = 0, price = 0, passRef }) => {
   }
 
   return (
-    <ImgContainer onMouseOver={e => pause(e)} onMouseOut={e => play(e)}> 
+    <ImgContainer onMouseOver={e => pause(e)} onMouseOut={e => play(e)} href={link} target='_blank'>
       <NftImage src={img} alt="The NFT" priority />
       <Details> <div>
         <span>Spirit</span> <br />
@@ -111,7 +112,7 @@ animation: ${move}  linear infinite ${props => props.direction};
 
 
 `
-const ImgContainer = styled.div`
+const ImgContainer = styled(Link)`
 width: 15rem;
 margin: 0 1rem;
 background-color:${props => props.theme.body};
