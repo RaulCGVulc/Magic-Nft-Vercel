@@ -37,7 +37,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Magic $Money Mages</title>
+        <title>$Magic Money Mages</title>
         <meta name="description" content="Magic $Money Mages" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/logo.ico" />
