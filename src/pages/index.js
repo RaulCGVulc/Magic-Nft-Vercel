@@ -56,7 +56,7 @@ export default function Home() {
             <About />
             <Roadmap />
             <Showcase />
-            <Team />
+            {/* <Team /> */}
             {/* <Faq /> */}
             <Footer />
 
