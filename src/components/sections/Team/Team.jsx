@@ -22,9 +22,6 @@ const Team = () => {
         <MemberComponent img={img4} name='Pancho' position='CEO' />
         <MemberComponent img={img5} name='Pancho' position='CEO' />
         <MemberComponent img={img6} name='Pancho' position='CEO' />
-        <MemberComponent img={img7} name='Pancho' position='CEO' />
-        <MemberComponent img={img8} name='Pancho' position='CEO' />
-        <MemberComponent img={img9} name='Pancho' position='CEO' />
       </Container>
 
     </Section>
@@ -64,6 +61,7 @@ width: fit-content;
 `
 const Container = styled.div`
 width: 75%;
+max-width: 1110px;
 margin: 2rem auto;
 display: flex;
 justify-content: space-between;
@@ -72,7 +70,8 @@ flex-wrap: wrap;
 `
 
 const Item = styled.div`
-width: calc(20rem - 4vw); padding: 1rem 0;
+width: calc(20rem - 4vw); 
+padding: 1rem 0;
 color: ${props => props.theme.body};
 margin: 2rem 1rem;
 position: relative;
@@ -87,6 +86,10 @@ border-radius: 20px;
   transition: all 0.3s ease;
   }
 }
+
+@media (min-width: 768px){
+  min-width: 258;
+  }
 `
 
 const ImgContainer = styled.div`
