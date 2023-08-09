@@ -9,8 +9,8 @@ const config = {
   host: 'smtp.gmail.com',
   port: 587,
   auth: {
-    user: 'raul@vulcanics.mx', // generated ethereal user
-    pass: 'pxfcihzrlouksytn', // generated ethereal password
+    user: process.env.EMAIL, // generated ethereal user
+    pass: process.env.EMAIL_PASSWORD, // generated ethereal password
   },
 }
 
@@ -21,6 +21,6 @@ transporter.verify().then(() => {
 })
 
 export const mailOptions = {
-  from: 'raul@vulcanics.mx',
-  to: 'hector@vulcanics.mx',
+  from: process.env.FROM_EMAIL,
+  to: process.env.TO_EMAIL,
 }
