@@ -5,7 +5,7 @@ import { Carousel } from '../../Carousel'
 import { dark } from '../../../styles/Themes';
 
 const Section = styled.section`
-  min-height: 100%;
+  min-height: 100vh;
   width: 100%;
   background-color: ${(props) => props.theme.text};
   overflow-x: hidden;
